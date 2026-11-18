@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Advert Decoder</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Job Advert Decoder</h1>
+    <p class="sub">Paste a job advert. The backend runs it through five stages
+       and shows you every one.</p>
+    <div class="badges" id="badges"></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="panel">
+    <h2>1. Frontend</h2>
+    <p class="muted">This page. It collects what you type and sends it to the
+       backend. It holds no keys and makes no decisions.</p>
+    <textarea id="advert" rows="9" placeholder="Paste a job advert here..."></textarea>
+    <div class="row">
+      <button id="go">Decode it</button>
+      <button id="sample" class="ghost">Use a sample advert</button>
+      <span class="muted" id="status"></span>
+    </div>
+  </section>
+
+  <section class="panel" id="pipeline-panel" hidden>
+    <h2>The pipeline</h2>
+    <p class="muted">The same five stages from the session, as they actually ran.</p>
+    <div id="stages"></div>
+  </section>
+
+  <section class="panel" id="answer-panel" hidden>
+    <h2>What came back</h2>
+    <div id="answer"></div>
+  </section>
+
+  <section class="panel">
+    <h2>What the database remembers</h2>
+    <p class="muted">Every request is written down. Refresh to see it survive,
+       or not.</p>
+    <div class="row">
+      <button id="refresh" class="ghost">Load recent requests</button>
+      <span class="muted" id="store-status"></span>
+    </div>
+    <div id="recent"></div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p class="muted" id="foot"></p>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
